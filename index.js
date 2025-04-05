@@ -9,7 +9,11 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({allowedHeaders:"*"}));
+const cors = require("cors");
+app.use(cors({
+  origin: "https://your-frontend.vercel.app", // ← update this with your Vercel domain
+  credentials: true
+}));
 
 app.use('/api/auth', require('./routes/authRoute'))
 app.use('/api/users', require('./routes/userRoute'))
