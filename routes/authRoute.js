@@ -8,7 +8,7 @@ const router = express.Router();
  
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, address, bio } = req.body;
+    const { name, email, password } = req.body;
  
     if (!name || name.trim() === "") {
       console.log(`Data not found`)
@@ -19,9 +19,7 @@ router.post("/register", async (req, res) => {
     if (!password || password.trim() === "") {
       console.log(`Data not found`)
     }
-    if (!address || address.trim() === "") {
-      console.log(`Data not found`)
-    }
+   
    
 
     const existingUser = await User.findOne({ email });
@@ -33,8 +31,7 @@ router.post("/register", async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      address,
-      bio,
+       
     });
     await user.save();
 
