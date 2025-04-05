@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
 app.use(cors({
-  origin: "https://your-frontend.vercel.app", // ← update this with your Vercel domain
-  credentials: true
+  origin: "https://iit-bbs-hackathon.vercel.app",
+  credentials: true 
 }));
 
 app.use('/api/auth', require('./routes/authRoute'))
